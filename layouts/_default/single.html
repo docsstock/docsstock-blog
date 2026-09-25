@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article>
+  <header>
+    <h1>{{ .Title }}</h1>
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      {{ with .Params.tags }} &middot; {{ range . }}<a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}{{ end }}
+    </p>
+  </header>
+  {{ .Content }}
+  {{ with .Params.canonical_url }}
+  <p class="source">Originally published at <a href="{{ . }}" rel="canonical">{{ . }}</a>.</p>
+  {{ end }}
+</article>
+{{ end }}

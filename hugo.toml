@@ -1,0 +1,29 @@
+baseURL = "https://blog.docsstock.com/"
+languageCode = "en-us"
+title = "DocsStock Blog"
+enableRobotsTXT = true
+timeZone = "UTC"
+
+# Posts are committed by the DocsStock syndication bot as
+# content/posts/yyyy-mm-dd-slug.md. Taking the date from the filename
+# strips the prefix so the page lives at /slug/, which is the permalink the
+# platform records for every published post.
+[frontmatter]
+  date = [":filename", ":default"]
+
+[permalinks]
+  posts = "/:slug/"
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  description = "Editable document templates and release notes from DocsStock."
+  mainSite = "https://docsstock.com"
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]

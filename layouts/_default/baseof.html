@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    <nav>
+      <a href="{{ "posts/" | relURL }}">Posts</a>
+      <a href="{{ "tags/" | relURL }}">Tags</a>
+      <a href="{{ .Site.Params.mainSite }}">DocsStock</a>
+    </nav>
+  </header>
+  <main class="content">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="site-footer">
+    &copy; {{ now.Year }} <a href="{{ .Site.Params.mainSite }}">DocsStock</a>
+  </footer>
+</body>
+</html>

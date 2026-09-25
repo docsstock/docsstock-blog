@@ -1,0 +1,14 @@
+{{ define "main" }}
+<h1>{{ .Site.Title }}</h1>
+<p class="lede">{{ .Site.Params.description }}</p>
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+<ul class="post-list">
+  {{ range first 20 $posts }}
+  <li>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{ end }}
+</ul>
+{{ if gt (len $posts) 20 }}<p><a href="{{ "posts/" | relURL }}">All posts &rarr;</a></p>{{ end }}
+{{ end }}
